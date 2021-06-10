@@ -7,6 +7,10 @@
 // gridsome 配置文件
 
 module.exports = {
-  siteName: 'Gridsome',
-  plugins: []
+  siteName: 'Gridsome', // 页面名称，即页面 tab 标签上的 title
+  siteDescription: 'blog',  // meta description
+  pathPrefix: '',   // 部署目录 若在 app 目录部署，则为 ’/app‘
+  plugins: [],
+  port: 3080,
+//   configureWebpack: {}, // 自定义 webpack 配置
 }
