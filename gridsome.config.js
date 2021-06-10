@@ -13,4 +13,12 @@ module.exports = {
   plugins: [],
   port: 3080,
 //   configureWebpack: {}, // 自定义 webpack 配置
+  templates: {
+    Post: [
+      {
+        path: '/post/:id',
+        component: './src/templates/Post.vue'
+      }
+    ]
+  }
 }
