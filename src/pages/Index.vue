@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  // metaInfo 自定义头部信息
   metaInfo: {
     title: 'Hello, world!'
   }
