@@ -23,3 +23,7 @@ https://gridsome.org/docs/querying-data/
 
 - Use `<page-query>` in Pages & Templates.
 - Use `<static-query>` in Components
+
+### 5. 结合 strapi 开发
+
+https://strapi.io
