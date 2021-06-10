@@ -5,3 +5,5 @@ create a file named `WordPressPost.vue` in this folder.
 Learn more: https://gridsome.org/docs/templates/
 
 You can delete this file.
+
+这个目录是放集合的节点的

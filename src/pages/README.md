@@ -3,3 +3,5 @@ Add .vue files here to create pages. For example **About.vue** will be **site.co
 Learn more about pages: https://gridsome.org/docs/pages/
 
 You can delete this file.
+
+pages 目录下 gridsome 会自动生成路由

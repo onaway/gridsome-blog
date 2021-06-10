@@ -4,6 +4,8 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+// gridsome 配置文件
+
 module.exports = {
   siteName: 'Gridsome',
   plugins: []
