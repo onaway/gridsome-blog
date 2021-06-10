@@ -16,3 +16,10 @@ This is the project you get when you run `gridsome create new-project`.
 ### 3. 目录结构文档
 
 https://gridsome.org/docs/directory-structure/
+
+### 4. 查询数据
+
+https://gridsome.org/docs/querying-data/
+
+- Use `<page-query>` in Pages & Templates.
+- Use `<static-query>` in Components
