@@ -7,7 +7,7 @@
 // gridsome 配置文件
 
 module.exports = {
-  siteName: 'Gridsome', // 页面名称，即页面 tab 标签上的 title
+  siteName: 'blog', // 页面名称，即页面 tab 标签上的 title
   siteDescription: 'blog',  // meta description
   pathPrefix: '',   // 部署目录 若在 app 目录部署，则为 ’/app‘
   plugins: [],
