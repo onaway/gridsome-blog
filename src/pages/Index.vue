@@ -26,7 +26,7 @@
             <p class="post-meta">
               Posted by
               <a href="#!">{{ post.node.create_by.username }}</a>
-              {{ post.node.created_at |  date('MMM DD, YYYY') }}
+              {{ post.node.created_at | date('MMM DD, YYYY') }}
             </p>
 
             <!-- Divider-->
