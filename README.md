@@ -31,3 +31,7 @@ https://strapi.io
 strapi 中的数据获取：本项目使用插件 @gridsome/source-strapi 预取 strapi 更新的数据
 
 每次 strapi 更新数据后，本项目需要重新 run 一次，重启服务
+
+### 6. 分页
+
+文档：https://gridsome.org/docs/pagination/
