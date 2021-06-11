@@ -20,22 +20,27 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
           <!-- Post preview-->
           <div class="post-preview" v-for="post in $page.posts.edges" :key="post.node.id">
-            <a href="post.html">
+            <g-link :to='`post/${post.node.id}`'>
               <h2 class="post-title">{{ post.node.title }}</h2>
-            </a>
+            </g-link>
             <p class="post-meta">
               Posted by
-              <a href="#!">{{ post.node.create_by.username }}</a>
+              <span class="author">{{ post.node.create_by.username }}</span>
               {{ post.node.created_at | date('MMM DD, YYYY') }}
+            </p>
+            <p>
+              <span v-for="tag in post.node.tags" :key="tag.id">
+                <g-link :to="`tag/${tag.id}`">{{ tag.title }}</g-link>
+                &nbsp;&nbsp;
+              </span>
             </p>
 
             <!-- Divider-->
             <hr class="my-4" />
           </div>
-          
+
           <!-- Pager-->
-          <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts
-              →</a></div>
+          <Pager class="pages" :info="$page.posts.pageInfo" />
         </div>
       </div>
     </div>
@@ -43,8 +48,12 @@
 </template>
 
 <page-query>
-query {
-  posts: allStrapiPost {
+query ($page: Int) {
+  posts: allStrapiPost (perPage: 2, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -64,17 +73,33 @@ query {
 </page-query>
 
 <script>
+import { Pager } from "gridsome";
+
 export default {
   // metaInfo 自定义头部信息
   metaInfo: {
-    title: 'Hello, world!'
+    title: "Hello, world!",
   },
-  name: 'Home'
-}
+  name: "Home",
+  components: {
+    Pager,
+  },
+};
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
+.author {
+  color: #000;
+}
+.pages {
+  height: 40px;
+}
+.pages a {
+  padding: 3px 10px;
+  border: 1px solid #999;
+  border-left: 0;
+}
+.pages a:first-child {
+  border-left: 1px solid #999;
 }
 </style>
