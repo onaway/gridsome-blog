@@ -7,8 +7,10 @@
     "build": "gridsome build"
   },
   "dependencies": {
+    "@gridsome/source-strapi": "^0.2.0",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
+    "dayjs": "^1.10.5",
     "gridsome": "^0.7.0"
   }
 }
