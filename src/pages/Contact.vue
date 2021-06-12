@@ -30,34 +30,31 @@
               <!-- to get an API token!-->
               <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="form-floating">
-                  <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                  <input v-model="form.name" class="form-control" id="name" type="text" placeholder="Enter your name..."
+                    data-sb-validations="required" />
                   <label for="name">Name</label>
                   <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                 </div>
                 <div class="form-floating">
-                  <input class="form-control" id="email" type="email" placeholder="Enter your email..."
+                  <input v-model="form.email" class="form-control" id="email" type="email" placeholder="Enter your email..."
                     data-sb-validations="required,email" />
                   <label for="email">Email address</label>
                   <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                   <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                 </div>
                 <div class="form-floating">
-                  <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..."
+                  <input v-model="form.phone" class="form-control" id="phone" type="tel" placeholder="Enter your phone number..."
                     data-sb-validations="required" />
                   <label for="phone">Phone Number</label>
                   <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                 </div>
                 <div class="form-floating">
-                  <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem"
-                    data-sb-validations="required"></textarea>
+                  <textarea v-model="form.message" class="form-control" id="message" placeholder="Enter your message here..."
+                    style="height: 12rem" data-sb-validations="required"></textarea>
                   <label for="message">Message</label>
                   <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                 </div>
                 <br />
-                <!-- Submit success message-->
-                <!---->
-                <!-- This is what your users will see when the form-->
-                <!-- has successfully submitted-->
                 <div class="d-none" id="submitSuccessMessage">
                   <div class="text-center mb-3">
                     <div class="fw-bolder">Form submission successful!</div>
@@ -66,15 +63,11 @@
                     <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                   </div>
                 </div>
-                <!-- Submit error message-->
-                <!---->
-                <!-- This is what your users will see when there is-->
-                <!-- an error submitting the form-->
                 <div class="d-none" id="submitErrorMessage">
                   <div class="text-center text-danger mb-3">Error sending message!</div>
                 </div>
                 <!-- Submit Button-->
-                <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Send</button>
+                <button @click.prevent="onSubmit" class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
               </form>
             </div>
           </div>
@@ -85,13 +78,38 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   metaInfo: {
-    title: 'Contact'
+    title: "Contact",
   },
-  name: 'Contact',
-}
+  name: "Contact",
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      },
+    };
+  },
+  methods: {
+    async onSubmit() {
+      try {
+        if (!this.form.name ) return alert('名字不能为空')
+        if (!this.form.email ) return alert('邮箱不能为空')
+        if (!this.form.phone ) return alert('手机号不能为空')
+        await axios.post('http://localhost:1337/contacts', this.form)
+        window.alert('发送成功')
+      } catch (error) {
+        window.alert('发送失败')
+      }
+    }
+  }
+};
 </script>
 
-<style lang='less' scoped>
+<style>
 </style>
