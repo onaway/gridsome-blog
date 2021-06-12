@@ -11,7 +11,6 @@ module.exports = {
   siteDescription: 'blog',  // meta description
   pathPrefix: '',   // 部署目录 若在 app 目录部署，则为 ’/app‘
   port: 3080,
-  // configureWebpack: {}, // 自定义 webpack 配置
   plugins: [
     {
       use: '@gridsome/source-strapi',
