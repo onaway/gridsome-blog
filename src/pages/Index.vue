@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <!-- Page Header-->
-    <header class="masthead" :style="{backgroundImage: `url(http://localhost:1337${general.cover.url})`}">
+    <header class="masthead" :style="{backgroundImage: `url(${GRIDSOME_API_URL + general.cover.url})`}">
       <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
@@ -49,7 +49,7 @@
 
 <page-query>
 query ($page: Int) {
-  posts: allStrapiPost (perPage: 2, page: $page) @paginate {
+  posts: allStrapiPost (perPage: 5, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
