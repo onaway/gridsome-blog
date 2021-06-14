@@ -13,6 +13,7 @@
     "bootstrap": "^5.0.1",
     "dayjs": "^1.10.5",
     "gridsome": "^0.7.0",
+    "http-proxy-middleware": "^2.0.0",
     "markdown-it": "^12.0.6"
   }
 }
