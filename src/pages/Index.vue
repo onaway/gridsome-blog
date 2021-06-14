@@ -91,7 +91,7 @@ import { Pager } from "gridsome";
 export default {
   // metaInfo 自定义头部信息
   metaInfo: {
-    title: "Hello, world!",
+    title: "Home",
   },
   name: "Home",
   components: {
