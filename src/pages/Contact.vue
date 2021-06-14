@@ -101,7 +101,7 @@ export default {
         if (!this.form.name ) return alert('名字不能为空')
         if (!this.form.email ) return alert('邮箱不能为空')
         if (!this.form.phone ) return alert('手机号不能为空')
-        await axios.post('http://localhost:1337/contacts', this.form)
+        await axios.post('http://113.31.103.100:1337/contacts', this.form)
         window.alert('发送成功')
       } catch (error) {
         window.alert('发送失败')
